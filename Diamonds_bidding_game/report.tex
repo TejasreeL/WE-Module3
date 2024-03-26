@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{tgschola} % or any other font package you like
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\newcommand{\soptitle}{Diamonds Bidding Game and GenAI}
+
+\newcommand{\statement}[1]{\par\medskip
+  \underline{\textcolor{blue}{\textbf{#1:}}}\space
+}
+
+\usepackage[
+  colorlinks,
+  breaklinks,
+  unicode
+]{hyperref}
+
+% No paragraph indentation
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}\LARGE\soptitle\\
+Tejasree Lokireddy
+\end{center}
+
+\hrule
+\vspace{1pt}
+\hrule height 1pt
+
+\bigskip
+
+\section{Introduction}
+\indent {This report is about teaching GenAIs Gemini and Chatgpt about the diamonds bidding game, making them give strategies and write code for the given strategies. Gemini and ChatGPT were chosen for this task due to their distinct strengths and weaknesses. Gemini demonstrated a strong understanding of the game mechanics but struggled with code implementation, while ChatGPT, although proficient in coding, faced difficulties grasping the intricacies of the game rules, particularly in regards to point assignment.}
+
+\section{Problem Statement}
+In the first prompt, I asked Gemini and Chatgpt if they are aware of the diamonds bidding game, and in the next one, I explained the game to them. The second prompt includes all the rules of the game:
+\vspace{10pt}
+
+This diamonds card game is different: The game can be played either by two players or by three players. The two player game is a special version of the three player game where either spades hearts of clubs are completely removed from the game. Otherwise, in the three player game, each players gets a suit of cards other than the diamond. The diamond cards will be shuffled, kept face down and will be put on auction one by one (draw pile). Each turn, the top most diamond card is taken from the draw pile and kept face down: the price that players are bidding for. All the players must bid with one of their own cards in a closed bid system where others do not know what is bid until it is uncovered. The winning player gets the points of the diamond card and it is added to their column in the table. If there are multiple players that bid with the same card, the points from the diamond are divided equally. The player with most points wins the game in the end. The points for each diamond card is equivalent to the rank 1\textless2\textless3\textless4\textless5\textless6\textless7\textless8\textless9\textless10\textless J\textless Q\textless K\textless A
+
+\section{Teaching GenAI the game}
+The next prompt was to simulate the game. This was the best way to check whether the GenAI grasped the rules of the game. I asked them to simulate 13 rounds.
+\vspace{10pt}
+
+During the simulation, I explained the game dynamics, including bidding on diamond cards and accumulating points based on their values. As we played, I tried to provide insights into effective bidding strategies, such as assessing the value of the revealed diamond card and strategically choosing bids based on the composition of our suit cards. I highlighted the importance of remembering opponents' bids to make future decisions.
+\vspace{10pt}
+
+Chatgpt was bidding correctly, understood the dynamics of the game, but could not understand the rules for adding points, or even the fact that once a card is used from a suit, it must be discarded and cannot be used again. Even after 5 rounds, Chatgpt still struggled. Gemini understood the game and could simulate it perfectly after 3 rounds.
+
+\section{Strategy}
+Chatgpt gave multiple strategies. Evaluating the value of revealed diamond cards relative to the remaining cards available, will balance aggressive and conservative bids. Positional awareness must be leveraged to adapt bidding tactics based on the position in the round. Utilizing card counting techniques, and keeping track of what cards have been bid is necessary. Overall, the adaptive strategy suggested will enable players to remain responsive to changing dynamics.
+\vspace{10pt}
+
+In contrast, Gemini employed a sophisticated bidding strategy driven by an evaluation of hand composition and the revealed diamond card's value. The player must dynamically adapt bidding decisions based on the perceived strength of the hand, distinguishing between high, low, and balanced card distributions. For high-value diamond cards, lower-value cards must be sacrificed to secure bids, maximizing point gains. Conversely, for low-value diamond cards, a more conservative approach must be employed, utilizing lower-ranking cards to conserve stronger ones for subsequent rounds.
+
+\section{Analysis and Conclusion}
+
+\textbf{ChatGPT}
+
+Various bidding strategies were explored, such as evaluating the value of diamond cards, managing risk, and adapting tactics based on positional awareness. Through interactive gameplay, importance of adaptability and foresight in maximizing point accumulation and securing victory was highlighted. Throughout the simulation, Chatgpt tried to adapt to the rules of the game but sincerely kept going wrong. Chatgpt could not give a satisfactory code implemented with the strategies it explored. In the end, I gave it the code Gemini produced in order to make changes and debug it.
+\vspace{10pt}
+
+\textbf{Gemini}
+
+Gemini caught the essence of the Diamonds card game flawlessly, offering a structured framework for gameplay simulation. It incorporated key gameplay elements such as deck shuffling, card distribution, bidding mechanics, and score calculation in the code provided. The code implements intelligent player logic, enabling strategic decision-making based on hand evaluation and revealed diamond cards. The code also implements the strategies it specified choosing cards carefully in order to gain victory. However, Gemini could not debug the code it gave. It could not even enhance the code, I had to give this code to Chatgpt to make it better.
+\vspace{10pt}
+
+In summary, both Chatgpt and Gemini contributed to a comprehensive understanding of the Diamonds card game, highlighting the strategic depth and competitive dynamics inherent in the game. Whether through interactive gameplay or code implementation, the exploration of bidding strategies and tactical maneuvers enriches the appreciation for strategic thinking and gameplay mechanics.
+
+\end{document}
