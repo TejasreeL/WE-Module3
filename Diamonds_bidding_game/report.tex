@@ -3,6 +3,8 @@
 \usepackage{xcolor}
 \usepackage{fancyhdr}
 \usepackage{tgschola} % or any other font package you like
+\usepackage{listings}
+\usepackage{graphics}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -57,6 +59,24 @@ Chatgpt gave multiple strategies. Evaluating the value of revealed diamond cards
 \vspace{10pt}
 
 In contrast, Gemini employed a sophisticated bidding strategy driven by an evaluation of hand composition and the revealed diamond card's value. The player must dynamically adapt bidding decisions based on the perceived strength of the hand, distinguishing between high, low, and balanced card distributions. For high-value diamond cards, lower-value cards must be sacrificed to secure bids, maximizing point gains. Conversely, for low-value diamond cards, a more conservative approach must be employed, utilizing lower-ranking cards to conserve stronger ones for subsequent rounds.
+
+\section{Strategic code and result}
+
+\begin{lstlisting}
+def play_smart_card(self, revealed_diamond):
+    remaining_high_cards = [card for card in self.high_cards if card.rank 
+    >= revealed_diamond.rank]
+    if remaining_high_cards:
+        bid_card = min(remaining_high_cards, key=lambda card: card.rank)
+    else:
+        bid_card = min(self.hand, key=lambda card: card.rank)
+    self.hand.remove(bid_card)
+    if bid_card in self.high_cards:
+        self.high_cards.remove(bid_card)
+    return bid_card
+\end{lstlisting}
+
+This is the part of the code where Gemini has applied the strategy of playing the lowest-ranked high card if available and if diamond is high, and prioritizing playing the lowest card if no high cards are available. This is the strategy employed by Gemini and is the part of the code that can be replaced by another strategy.
 
 \section{Analysis and Conclusion}
 
